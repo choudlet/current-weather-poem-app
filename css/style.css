@@ -43,15 +43,28 @@ fieldset {
   border: none;
 }
 
-.btn-float {
-  margin: 0 auto;
+.searchbutton {
+  float:right;
 }
 
 .searchlabel {
   font-size: 1.2em;
 }
 
+/* Refining Search Results */
+
+.locationlist {
+  display:none;
+}
+
+.locationlist > ul >li:hover {
+  font-size: 1.2em;
+  color: #2196f3;
+}
 /*Weather Data */
+.maincontent {
+  
+}
 
 .icon {
   font-family: 'MeteoconsRegular';
