@@ -1,13 +1,41 @@
 <!doctype html>
 <html>
-<head>
-  <link href="materialize/css/materialize.min.css" rel="stylesheet" type="text/css" />
-  <link href ="/css/style/css" rel="stylesheet" type="text/css" />
-</head>
-<body>
 
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-  <script src="materialize/js/materialize.min.js" ></script>
-  <script src="js/app.js"></script>
+<head>
+    <link href="materialize/css/materialize.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400|Reenie+Beanie" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <header>
+        <div class="headbar center-align">
+            <h1 class="headtext">WeatherVerse</h1>
+            <p class="headtext tagline">Enjoy a Poem Based on the Current Weather</p>
+        </div>
+    </header>
+    <main class="container">
+        <section class="addressinput">
+            <form class="row">
+                <div class="col s3"></div>
+                <fieldset class="col s6 tan">
+                    <div class="searching">
+                        <label for="search" class="searchlabel center-align">Enter Your Current Address or Zip Code</label>
+                        <input class="search searchtext center-align brown-lighten-2" name="search" type="text" value="" />
+                        <button name="search" type="submit" class="searchbutton btn-float waves-effect waves-light">Submit</button>
+                    </div>
+            </form>
+            <div class="col s3"></div>
+        </section>
+  
+    </main>
+    <footer>
+
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="materialize/js/materialize.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
+
 </html>
