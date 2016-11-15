@@ -41,11 +41,10 @@ function createWeather(latitude, longitude) {
   url: 'https://api.darksky.net/forecast/fca786bd2d0d60b933581d4c8abe3203/'+latitude+','+longitude,
   data: "data",
   success: function(data) {
-    console.log(data);
+
     $('.temperature').append(' '+data.currently.temperature+ "F");
-    $('.temperature').append(' '+data.currently.temperature+ "F");
-    $('.temperature').append(' '+data.currently.temperature+ "F");
-    $('.temperature').append(' '+data.currently.temperature+ "F");
+    $('.currentconditions').append(' '+data.currently.summary);
+    $('.daily').append(' '+data.hourly.summary);
   },
   dataType: "jsonp"
 });
