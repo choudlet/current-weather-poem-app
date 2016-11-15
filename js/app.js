@@ -61,23 +61,23 @@ function createWeather(latitude, longitude) {
 
 }
 
-function createicon() {
+function createicon(icon) {
   $('#icon1').css('display', 'block');
   skycons = new Skycons({"color": "black"});
-  console.log(icon);
-  skycons.add("icon1", Skycons.WIND);
+  var allcaps = icon.toUpperCase();
+  var final = allcaps.replace(/-/g, "_");
+  skycons.add("icon1", Skycons[final]);
   skycons.play();
 }
 
 function changeWeatherFields(data) {
-  console.log(data);
   $('.weathercontent').replaceWith(divClone.clone());
   $('.temperature').append(' '+data.currently.temperature+ "F");
   $('.currentconditions').append(' '+data.currently.summary);
   $('.daily').append(' '+data.hourly.summary);
   $('.precipprob').append(' '+ data.currently.precipProbability +'%');
-  $('.time').append(' '+ data.currently.time);
-  createicon();
+  formatTime(data.currently.time);
+  createicon(data.currently.icon);
 }
 
 /* Poem Arrays */
@@ -127,5 +127,7 @@ function selectAndDisplayPoem(word) {
   });
 }
 
-
+function formatTime(time) {
+  console.log(time);
+}
 });
