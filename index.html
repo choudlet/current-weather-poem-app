@@ -4,7 +4,6 @@
 <head>
     <link href="materialize/css/materialize.min.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400|Reenie+Beanie" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -35,18 +34,19 @@
         </div>
         </section>
         <section class="maincontent row">
-            <div class="col s6 grey lighten-4">
+            <div class="col s6 grey lighten-4 weatherdata">
                 <div class="card">
                     <div class="card-image">
-                        <img src="http://placehold.it/600x400">
+                        <img class="mapimage" src="http://placehold.it/600x400">
                         <span class="card-title weatherlocation"></span>
                     </div>
                     <div class="card-content">
-                        <ul>
-                            <span class="icon">N</span>
+                        <ul class="weathercontent">
+                            <canvas class="z-depth-3" id="icon1" width="128" height="128"></canvas>
+                            <li class="time">Current Time:</li>
                             <li class="temperature">Current Temperature:</li>
                             <li class="currentconditions">Current Conditions:</li>
-                            <li class="currenttime">Current Time:</li>
+                            <li class="precipprob">Precipitation Probabilty</li>
                             <li class="daily">Daily Forecast:</li>
                         </ul>
                     </div>
@@ -72,6 +72,9 @@ Farm-to-table air plant bicycle rights whatever. Flannel offal bitters pok pok. 
     </footer>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="materialize/js/materialize.min.js"></script>
+    <script src="skycons/skycons.js"></script>
+    <!--<script src="timezone/moment.js"></script>
+    <script src="timezone/moment-data.js"></script> -->
     <script src="js/app.js"></script>
 </body>
 
