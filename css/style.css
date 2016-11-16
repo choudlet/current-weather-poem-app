@@ -9,24 +9,46 @@ html {
 
 /* Header Styling */
 
-.headbar {
-  margin-top: .5em;
+nav .headtext {
   font-family: 'Reenie Beanie', cursive;
+  font-size: 4em;
 }
 
-.headtext {
-  margin:0;
+.navbut: hover {
+  background-color: #fff;
 }
 
-.tagline {
-  font-size: 1.2em;
-  font-family: 'Raleway', sans-serif;
+nav .navbut {
+  color: #fff;
+  margin-left: .5em;
+}
+/*modals */
+.imagebox {
+  display:flex;
+  justify-content: center;
 }
 
+.contactimg {
+  margin: 0 auto;
+  height: 96px;
+  width: 96px;
+  border-radius: 50%;
+}
+
+.contactbox {
+  display: flex;
+  justify-content: space-around;
+  font-size: .7em;
+}
 /* input form */
+
+.addressherosection {
+  background: url("http://www.fusionmagazine.org/wp-content/uploads/2015/10/clouds_elias.jpeg");
+}
 
 .addressinput {
   margin-top: 2em;
+
 }
 
 fieldset {

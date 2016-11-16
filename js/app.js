@@ -12,6 +12,8 @@ $(document).ready(function(){
 /* Event Listeners */
   $('.searchbutton').click(findLatLong);
   $('.locationlist > ul').click(filterList);
+  $('#modal1').modal();
+  $('#modal2').modal();
 
 /* Functions */
 
@@ -125,7 +127,7 @@ function pickWord(currentWeather){
     rand = array[Math.floor(Math.random() * array.length)];
 }
 function selectAndDisplayPoem(word) {
-  $.get('http://www.stands4.com/services/v2/poetry.php?uid=5425&tokenid= yz0jaxfwyLNjBzos&term=' + word, function(data){
+  $.get('http://www.stands4.com/services/v2/poetry.php?uid=5425&tokenid=yz0jaxfwyLNjBzos&term=' + word, function(data){
     xml = data;
     resultarray = xml.getElementsByTagName('result');
     arr = [].slice.call(resultarray);
