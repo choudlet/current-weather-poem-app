@@ -92,28 +92,28 @@ function pickWord(currentWeather){
   currentWeather = currentWeather.toString();
   switch(currentWeather) {
     case "fog":
-        array = ["mist", "fog", "murk", "haze", "effuvium", "miasma", "smother", "obscure", "obscurity"];
+        array = ["mist", "fog", "fog-road", "murk", "haze", "miasma",];
         break;
     case "clear-day":
-        array = ["sun", "shining", "day", "bright", "brightness", "sunlight", "dawn-to-dusk", "light"];
+        array = ["sun", "clear-day", "bright-morning", "bright-day", "shining", "day", "bright", "brightness", "sunlight", "dawn-to-dusk", "light"];
         break;
     case "clear-night":
-        array = [ "night", "dark", "clear night", "duskiness", "eventide", "nighttide", "nightfall"];
+        array = [ "night", "dark-night", "clear-night", "dark",  "dusk", "eventide", "nightfall"];
         break;
     case "partly-cloudy-day":
-        array = ["cloud", "cloud day", "overcast", "misty", "partly cloudy day", "cloud", "overcast", "misty", "cloudy", "vapor", "smoke", "smog", "puff", "mist"];
+        array = ["cloud", "cloud-day", "overcast", "misty", "sun-cloud", "partly-cloudy-day", "cloud", "overcast", "misty", "smoke", "smog", "cloud-puff", "cloud-burst", "sun-mist"];
         break;
     case "partly-cloudy-night":
-        array = ["cloudy", "night", "dark", "overcast", "misty", "evening", "cloud", "overcast", "misty", "cloudy", "vapor", "smoke", "smog", "puff", "mist"];
+        array = ["cloudy", "night", "dark", "overcast", "misty", "evening", "cloud", "overcast", "misty", "cloudy", "smoke", "smog", "puff", "moon-mist", "moon-cloud"];
         break;
     case "cloudy":
-        array = ["cloud", "overcast", "misty", "cloudy", "vapor", "smoke", "smog", "puff", "mist"];
+        array = ["cloud", "overcast", "misty", "cloudy", "smoke", "smog", "cloud-puff", "mist", "clouds"];
         break;
     case "rain":
-        array = ["rain", "raining", "drizzle", "pouring", "misty", "downpour", "torrent", "sprinkling", "drencher", "deluge", "flood", "monsoon"];
+        array = ["rain", "raining", "drizzle", "pouring-rain", "misty", "downpour", "torrent", "sprinkling", "deluge", "flood", "monsoon"];
         break;
     case "sleet":
-        array = ["sleet", "ice", "cold", "wet", "hail", "iceberg"];
+        array = ["sleet", "ice", "cold", "wet", "iceberg"];
         break;
     case "snow":
         array = ["snow", "snowing",  "blizzard"];
@@ -128,17 +128,28 @@ function selectAndDisplayPoem(word) {
   $.get('http://www.stands4.com/services/v2/poetry.php?uid=5425&tokenid= yz0jaxfwyLNjBzos&term=' + word, function(data){
     xml = data;
     resultarray = xml.getElementsByTagName('result');
-    console.log(resultarray);
-    selectedPoem = resultarray[Math.floor(Math.random() * resultarray.length)];
+    arr = [].slice.call(resultarray);
+    newarr = [];
+    for (i=0; i < arr.length; i++) {
+      poem = arr[i].getElementsByTagName('poem');
+      console.log(poem);
+      if (poem[0].textContent.length !== 100) {
+        newarr.push(arr[i]);
+      }
+    }
+    selectedPoem = newarr[Math.floor(Math.random() * newarr.length)];
     title = selectedPoem.getElementsByTagName('title');
     poet = selectedPoem.getElementsByTagName('poet');
     poem = selectedPoem.getElementsByTagName('poem');
     console.log(title);
     console.log(poet);
     console.log(poem);
-    $('.poemtitle').text(title[0].textContent);
-    $('.poet').text(poet[0].textContent);
-    $('.poem').text(poem[0].textContent);
+    finaltitle = _.unescape(title[0].textconent);
+    finalpoet = _.unescape(title[0].textconent);
+    finalpoem = _.unescape(title[0].textconent);
+    $('.poemtitle').text(finaltitle);
+    $('.poet').text(finalpoet);
+    $('.poem').text(finalpoem);
   });
 }
 
