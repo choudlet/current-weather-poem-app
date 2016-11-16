@@ -7,6 +7,7 @@ $(document).ready(function(){
   skycons = null;
   rand = null;
   xml = null;
+  date = null;
   var divClone = $(".weathercontent").clone();
 /* Event Listeners */
   $('.searchbutton').click(findLatLong);
@@ -34,6 +35,7 @@ $(document).ready(function(){
       }
       if (latitude !== null) {
         createWeather(latitude, longitude);
+        createMap(latitude, longitude);
       }
     });
 
@@ -61,6 +63,10 @@ function createWeather(latitude, longitude) {
 
 }
 
+function createMap (lat,long) {
+  $('.mapimage').attr("src","https://maps.googleapis.com/maps/api/staticmap?center="+ lat + "," + long +"&zoom=12&size=600x400&key");
+}
+
 function createicon(icon) {
   $('#icon1').css('display', 'block');
   skycons = new Skycons({"color": "black"});
@@ -71,12 +77,13 @@ function createicon(icon) {
 }
 
 function changeWeatherFields(data) {
+  console.log(data);
   $('.weathercontent').replaceWith(divClone.clone());
   $('.temperature').append(' '+data.currently.temperature+ "F");
   $('.currentconditions').append(' '+data.currently.summary);
   $('.daily').append(' '+data.hourly.summary);
-  $('.precipprob').append(' '+ data.currently.precipProbability +'%');
-  formatTime(data.currently.time);
+  $('.precipprob').append(' '+ (data.currently.precipProbability * 100) +'%');
+  //formatTime(data.timezone);
   createicon(data.currently.icon);
 }
 
@@ -85,31 +92,31 @@ function pickWord(currentWeather){
   currentWeather = currentWeather.toString();
   switch(currentWeather) {
     case "fog":
-        array = ["mist", "fog", "murk", "haze"];
+        array = ["mist", "fog", "murk", "haze", "effuvium", "miasma", "smother", "obscure", "obscurity"];
         break;
     case "clear-day":
-        array = ["sun", "day", "clear"];
+        array = ["sun", "shining", "day", "bright", "brightness", "sunlight", "dawn-to-dusk", "light"];
         break;
     case "clear-night":
-        array = ["clear", "night", "dark", "moon", "star"];
+        array = [ "night", "dark", "clear night", "duskiness", "eventide", "nighttide", "nightfall"];
         break;
     case "partly-cloudy-day":
-        array = ["cloud", "day", "overcast", "misty"];
+        array = ["cloud", "cloud day", "overcast", "misty", "partly cloudy day", "cloud", "overcast", "misty", "cloudy", "vapor", "smoke", "smog", "puff", "mist"];
         break;
     case "partly-cloudy-night":
-        array = ["cloudy", "night", "dark", "overcast", "misty", "evening"];
+        array = ["cloudy", "night", "dark", "overcast", "misty", "evening", "cloud", "overcast", "misty", "cloudy", "vapor", "smoke", "smog", "puff", "mist"];
         break;
     case "cloudy":
-        array = ["cloud", "overcast", "misty", "cloudy"];
+        array = ["cloud", "overcast", "misty", "cloudy", "vapor", "smoke", "smog", "puff", "mist"];
         break;
     case "rain":
-        array = ["rain", "raining", "drizzle", "pouring", "misty"];
+        array = ["rain", "raining", "drizzle", "pouring", "misty", "downpour", "torrent", "sprinkling", "drencher", "deluge", "flood", "monsoon"];
         break;
     case "sleet":
-        array = ["sleet", "ice", "cold", "wet"];
+        array = ["sleet", "ice", "cold", "wet", "hail", "iceberg"];
         break;
     case "snow":
-        array = ["snow", "snowing", "misty"];
+        array = ["snow", "snowing",  "blizzard"];
         break;
     case "wind":
         array = ["wind", "windy", "breeze", "hurricane"];
@@ -121,13 +128,23 @@ function selectAndDisplayPoem(word) {
   $.get('http://www.stands4.com/services/v2/poetry.php?uid=5425&tokenid= yz0jaxfwyLNjBzos&term=' + word, function(data){
     xml = data;
     resultarray = xml.getElementsByTagName('result');
+    console.log(resultarray);
     selectedPoem = resultarray[Math.floor(Math.random() * resultarray.length)];
-    console.log(selectedPoem);
-
+    title = selectedPoem.getElementsByTagName('title');
+    poet = selectedPoem.getElementsByTagName('poet');
+    poem = selectedPoem.getElementsByTagName('poem');
+    console.log(title);
+    console.log(poet);
+    console.log(poem);
+    $('.poemtitle').text(title[0].textContent);
+    $('.poet').text(poet[0].textContent);
+    $('.poem').text(poem[0].textContent);
   });
 }
 
-function formatTime(time) {
-  console.log(time);
-}
+//function formatTime(timezone) {
+//  var localtime = moment().format();
+//  var weathertime = localtime.tz(timezone);
+//  console.log(weathertime);
+//}
 });

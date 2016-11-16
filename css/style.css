@@ -67,6 +67,10 @@ fieldset {
   padding:0;
 }
 
+#weatherlocation {
+  color: #af3333;
+}
+
 #icon1 {
   margin: 0 auto;
   margin-bottom: 2em;
