@@ -132,7 +132,7 @@ function selectAndDisplayPoem(word) {
     newarr = [];
     for (i=0; i < arr.length; i++) {
       poem = arr[i].getElementsByTagName('poem');
-      console.log(poem);
+
       if (poem[0].textContent.length !== 100) {
         newarr.push(arr[i]);
       }
@@ -141,12 +141,9 @@ function selectAndDisplayPoem(word) {
     title = selectedPoem.getElementsByTagName('title');
     poet = selectedPoem.getElementsByTagName('poet');
     poem = selectedPoem.getElementsByTagName('poem');
-    console.log(title);
-    console.log(poet);
-    console.log(poem);
-    finaltitle = _.unescape(title[0].textconent);
-    finalpoet = _.unescape(title[0].textconent);
-    finalpoem = _.unescape(title[0].textconent);
+    finaltitle = _.unescape(title[0].textContent);
+    finalpoet = _.unescape(poet[0].textContent);
+    finalpoem = _.unescape(poem[0].textContent);
     $('.poemtitle').text(finaltitle);
     $('.poet').text(finalpoet);
     $('.poem').text(finalpoem);
