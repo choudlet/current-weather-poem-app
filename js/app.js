@@ -18,10 +18,7 @@ $(document).ready(function() {
     $('#modal1').modal();
     $('#modal2').modal();
     $('.scrollspy').scrollSpy();
-    $('.newpoem').click(function(){
-      pickWord(weatherdata);
-      selectAndDisplayPoem(rand);
-    });
+    $('.newpoem').click(resetPoem);
     $('.authorwiki').click(openWiki);
 
     /* Functions */
@@ -56,10 +53,9 @@ $(document).ready(function() {
 
 
     function openWiki(event) {
-      console.log(event);
-      console.log("THIS WORKS");
-      window.open('https://en.wikipedia.org/wiki/'+poet[0].innerHTML, '_blank');
+        window.open('https://en.wikipedia.org/wiki/' + poet[0].innerHTML, '_blank');
     }
+
     function filterList(event) {
         $('.search').val(event.target.innerText);
         $('.locationlist > ul').empty();
@@ -72,7 +68,6 @@ $(document).ready(function() {
             url: 'https://api.darksky.net/forecast/fca786bd2d0d60b933581d4c8abe3203/' + latitude + ',' + longitude,
             data: "data",
             success: function(data) {
-                console.log(data);
                 weatherdata = data.currently.icon;
                 changeWeatherFields(data);
                 pickWord(data.currently.icon);
@@ -90,7 +85,7 @@ $(document).ready(function() {
     function createicon(icon) {
         $('#icon1').css('display', 'block');
         skycons = new Skycons({
-            "color": "black"
+            "color": "#484849"
         });
         var allcaps = icon.toUpperCase();
         var final = allcaps.replace(/-/g, "_");
@@ -178,9 +173,14 @@ $(document).ready(function() {
     }
 
     function formatTime(timezone) {
-      var localtime = moment();
-      var weathertime = localtime.tz(timezone).format('hh:mm z');
-      $('.localtime').append(' ' + weathertime);
+        var localtime = moment();
+        var weathertime = localtime.tz(timezone).format('hh:mm z');
+        $('.localtime').append(' ' + weathertime);
+    }
+
+    function resetPoem() {
+        pickWord(weatherdata);
+        selectAndDisplayPoem(rand);
     }
 
 });

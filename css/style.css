@@ -82,6 +82,11 @@ label {
   color:#AED5FA;
 }
 
+input[type=text]:focus:not([readonly]) {
+  border-bottom: 2px solid #AED5FA;
+  box-shadow: 0 1px 0 0 #AED5FA;
+}
+
 /* Refining Search Results */
 
 .locationlist {
