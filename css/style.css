@@ -12,6 +12,7 @@ html {
 nav .headtext {
   font-family: 'Reenie Beanie', cursive;
   font-size: 4em;
+  color: #484849;
 }
 
 .navbut: hover {
@@ -44,10 +45,8 @@ nav .navbut {
 
 .addressherosection {
   background: url("http://www.fusionmagazine.org/wp-content/uploads/2015/10/clouds_elias.jpeg");
+  height: 80vh;
 }
-
-.addressinput {
-  margin-top: 2em;
 
 }
 
@@ -55,6 +54,15 @@ fieldset {
   border: none;
 }
 
+form {
+  background-color: rgba(105,105,105,0.7);
+  border: none;
+  color:#AED5FA;
+}
+
+form .btn-flat {
+  color:#AED5FA;
+}
 .searchbutton {
   float:right;
 }
@@ -62,17 +70,35 @@ fieldset {
 .searchlabel {
   font-size: 1.2em;
 }
+label {
+  color:#AED5FA;
+}
 
 /* Refining Search Results */
 
 .locationlist {
+  margin-top: .2em;
   display:none;
+  background-color: rgba(105,105,105,0.7);
+  color:#AED5FA;
 }
+
 
 .locationlist > ul >li:hover {
   font-size: 1.2em;
   color: #2196f3;
 }
+
+#scroll {
+  display:none;
+}
+
+/*bottom content */
+
+.maincontent {
+  display:none;
+}
+
 /*Weather Data */
 
 .icon {
@@ -84,6 +110,16 @@ fieldset {
   float: left;
 }
 
+.card .card-content {
+  padding:.5em;
+  background-color: #ced8e3;
+  color: #484849
+}
+
+.card .card-image img {
+  width: 100%;
+  height: 250px;
+}
 .weathertext {
   float:right;
   padding:0;
@@ -100,4 +136,17 @@ fieldset {
   display: none;
   border-radius: 20%;
 }
+
+/* Poem */
+
+.iconcontainer {
+  display:flex;
+  justify-content: center;
+}
+
+.poeminfo {
+  position:relative;
+  margin: 0 auto
+}
+
 /* Color Preferences */

@@ -5,7 +5,9 @@
     <link href="materialize/css/materialize.min.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400|Reenie+Beanie" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+
 <body class="blue lighten-5">
     <header>
         <nav>
@@ -90,57 +92,69 @@
                 </div>
             </div>
     </header>
-    <main class="container">
-        <div class="addressherosection">
-        <section class="addressinput">
-            <form class="row">
+    <main>
+        <div class="addressherosection valign-wrapper">
+            <section class="addressinput valign row">
+                <form class="z-depth-4">
+                    <fieldset>
+                        <div class="searching">
+                            <label for="search" class="searchlabel center-align">Enter Address, Zipcode, or Location</label>
+                            <input class="search" name="search" type="text" value="" autocomplete="off" />
+                            <button name="search" type="submit" class="searchbutton waves-effect waves-teal btn-flat">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
                 <div class="col s3"></div>
-                <fieldset class="col s6 tan">
-                    <div class="searching">
-                        <label for="search" class="searchlabel center-align">Enter Address, Zipcode, or Location</label>
-                        <input class="search" name="search" type="text" value="" />
-                        <button name="search" type="submit" class="searchbutton waves-effect waves-teal btn-flat">Submit</button>
-                    </div>
-            </form>
-            <div class="col s3"></div>
-            <div class="locationlist">
-                <p>Please refine your search!</p>
-                <ul class="localelist">
-                </ul>
-            </div>
-        </section>
-        </div>
-        <section class="maincontent row">
-            <div class="col s6 grey lighten-4 weatherdata">
-                <div class="card">
-                    <div class="card-image imagearea">
-                        <img class="mapimage" src="http://placehold.it/600x400">
-                        <span class="card-title weatherlocation" id="weatherlocation"></span>
-                    </div>
-                    <div class="card-content">
-                        <ul class="weathercontent">
-                            <canvas class="z-depth-3" id="icon1" width="128" height="128"></canvas>
-                            <li class="time">Current Time:</li>
-                            <li class="temperature">Current Temperature:</li>
-                            <li class="currentconditions">Current Conditions:</li>
-                            <li class="precipprob">Precipitation Probabilty</li>
-                            <li class="daily">Daily Forecast:</li>
+                <div class="row">
+                    <div class="locationlist col s12 center-align">
+                        <p>Please refine your search!</p>
+                        <ul class="localelist">
                         </ul>
+                        <a id="scroll" href="#content">Text</a>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col s6 grey lighten-4 poemcontent">
+            </section>
+        </div>
+        <section id="content" class="maincontent scrollspy">
+            <div class="row container">
+                <div class="col s6 weatherdata container">
                     <div class="card">
                         <div class="card-content">
-                            <span class="card-title poemtitle">Poem Title</span>
-                            <h5 class="poet">Poet</h5>
-                            <p class="poem">Aesthetic cred lyft brooklyn selfies. Synth schlitz bicycle rights vegan sriracha, farm-to-table franzen cold-pressed master cleanse shoreditch. Poutine plaid semiotics celiac, shabby chic yr chicharrones. Sriracha forage disrupt,
-                                tattooed kickstarter hexagon freegan. Locavore mustache truffaut, skateboard fap narwhal actually DIY microdosing seitan four loko tacos woke. Fanny pack waistcoat shabby chic, deep v kickstarter vexillologist swag offal
-                                gastropub narwhal artisan poutine forage cred 3 wolf moon. Vexillologist activated charcoal chicharrones crucifix, meggings whatever before they sold out brooklyn tofu. Farm-to-table air plant bicycle rights whatever. Flannel
-                                offal bitters pok pok. Whatever next level you probably haven't heard of them keytar four dollar toast, selvage la croix. Fingerstache williamsburg single-origin coffee blog, cardigan live-edge distillery plaid vexillologist
-                                glossier thundercats hot chicken XOXO. Fanny pack hashtag pour-over, keytar organic butcher flannel actually ennui unicorn. 3 wolf moon pok pok meggings, truffaut shoreditch flannel tousled. Mlkshk cornhole etsy, meggings
-                                drinking vinegar lyft tbh celiac PBRB salvia subway tile pop-up live-edge.</p>
+                            <ul class="weathercontent center-align">
+                                <canvas class="z-depth-3" id="icon1" width="200" height="200"></canvas>
+                                <li class="localtime">Local Time: </li>
+                                <li class="temperature">Current Temperature:</li>
+                                <li class="currentconditions">Current Conditions:</li>
+                                <li class="precipprob">Precipitation Probabilty</li>
+                                <li class="windspeed">Wind Speed: </li>
+                                <li class="daily">Daily Forecast:</li>
+                            </ul>
+                        </div>
+                        <div class="card-image imagearea">
+                            <img class="mapimage responsive-img" src="http://placehold.it/600x400">
+                            <span class="card-title weatherlocation" id="weatherlocation"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6 poemcontent">
+                        <div class="card">
+                            <div class="card-content">
+                              <ul class="poeminfo center-align">
+                                <button class="btn-flat newpoem">New Poem</button>
+                                <button class="btn-flat">Save Poem</button>
+                                <button class="btn-flat">Text Poem</button>
+                                <button class="btn-flat">Author Wiki</button>
+                              </ul>
+                                <h3 class="poemtitle">Poem Title</h3>
+                                <h5 class="poet">Poet</h5>
+                                <p class="poem">Aesthetic cred lyft brooklyn selfies. Synth schlitz bicycle rights vegan sriracha, farm-to-table franzen cold-pressed master cleanse shoreditch. Poutine plaid semiotics celiac, shabby chic yr chicharrones. Sriracha forage
+                                    disrupt, tattooed kickstarter hexagon freegan. Locavore mustache truffaut, skateboard fap narwhal actually DIY microdosing seitan four loko tacos woke. Fanny pack waistcoat shabby chic, deep v kickstarter vexillologist
+                                    swag offal gastropub narwhal artisan poutine forage cred 3 wolf moon. Vexillologist activated charcoal chicharrones crucifix, meggings whatever before they sold out brooklyn tofu. Farm-to-table air plant bicycle rights
+                                    whatever. Flannel offal bitters pok pok. Whatever next level you probably haven't heard of them keytar four dollar toast, selvage la croix. Fingerstache williamsburg single-origin coffee blog, cardigan live-edge distillery
+                                    plaid vexillologist glossier thundercats hot chicken XOXO. Fanny pack hashtag pour-over, keytar organic butcher flannel actually ennui unicorn. 3 wolf moon pok pok meggings, truffaut shoreditch flannel tousled. Mlkshk
+                                    cornhole etsy, meggings drinking vinegar lyft tbh celiac PBRB salvia subway tile pop-up live-edge.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -153,7 +167,6 @@
     <script src="materialize/js/materialize.min.js"></script>
     <script src="skycons/skycons.js"></script>
     <script src="timezone/moment.js"></script>
-    <script src="timezone/moment-timezone.js"></script>
     <script src="timezone/moment-data.js"></script>
     <script src="underscore/underscore.js"></script>
     <script src="js/app.js"></script>
