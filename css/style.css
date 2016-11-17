@@ -12,7 +12,7 @@ html {
 nav .headtext {
   font-family: 'Reenie Beanie', cursive;
   font-size: 4em;
-  color: #484849;
+  color: #6C6F76;
 }
 
 .navbut: hover {
@@ -34,7 +34,6 @@ nav .navbut {
   height: 96px;
   width: 96px;
   border-radius: 50%;
-  border: .2em solid #484849;
 }
 
 .contactbox {
@@ -59,7 +58,7 @@ nav .navbut {
 }
 
 fieldset {
-  border: none;
+  border:none;
 }
 
 form {
