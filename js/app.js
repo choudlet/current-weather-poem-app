@@ -2,6 +2,7 @@ $(document).ready(function() {
     /* Setting Global Variables */
     latitude = null;
     longitude = null;
+    locationname = null;
     weatherdata = null;
     icon = null;
     skycons = null;
@@ -28,12 +29,13 @@ $(document).ready(function() {
         event.preventDefault();
         locationdata = $('.search').val();
         $.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + locationdata + "&key=AIzaSyBnZE4qJU7UOsB-8_nYTpkJfKOjuCqOm8s", function(data) {
+            console.log(data);
             if (data.status === "ZERO_RESULTS") {
                 Materialize.toast('No Results Please Search Again', 4000);
             } else if (data.results.length === 1) {
                 latitude = data.results[0].geometry.location.lat;
                 longitude = data.results[0].geometry.location.lng;
-                $('.weatherlocation').text(data.results[0].formatted_address);
+                locationname = data.results[0].formatted_address;
                 $('.maincontent').css('display', 'inline');
                 $('#scroll').trigger("click");
             } else if (data.results.length > 1) {
@@ -75,7 +77,7 @@ $(document).ready(function() {
     }
 
     function createMap(lat, long) {
-        $('.mapimage').attr("src", "https://maps.googleapis.com/maps/api/staticmap?center=" + lat + "," + long + "&zoom=12&size=400x250&key");
+        $('.mapimage').attr("src", "https://maps.googleapis.com/maps/api/staticmap?center=" + lat + "," + long + "&zoom=12&size=400x250&key=AIzaSyDvgn2NkY9SJE6YSn_3LP_7yYvxuUsTmoo");
     }
 
     function createicon(icon) {
@@ -90,8 +92,10 @@ $(document).ready(function() {
     }
 
     function changeWeatherFields(data) {
+        console.log(data);
         timezone = data.timezone;
         $('.weathercontent').replaceWith(divClone.clone());
+        $('.locationname').append(locationname);
         $('.temperature').append(' ' + data.currently.temperature + "F");
         $('.currentconditions').append(' ' + data.currently.summary);
         $('.daily').append(' ' + data.hourly.summary);

@@ -34,17 +34,23 @@ nav .navbut {
   height: 96px;
   width: 96px;
   border-radius: 50%;
+  border: .2em solid #484849;
 }
 
 .contactbox {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   font-size: .7em;
+}
+
+.contactbox img {
+    margin-left: 1em;
+    margin-right: 1em;
 }
 /* input form */
 
 .addressherosection {
-  background: url("http://dreamatico.com/data_images/cloud/cloud-1.jpg");
+  background: url("https://upload.wikimedia.org/wikipedia/commons/1/12/Cloud_Wallpaper_(3794977092).jpg");
   height: 80vh;
   width: auto;
   background-repeat: no-repeat;
@@ -132,10 +138,6 @@ label {
   padding:0;
 }
 
-#weatherlocation {
-  color: #af3333;
-}
-
 #icon1 {
   margin: 0 auto;
   margin-bottom: 2em;
@@ -145,6 +147,11 @@ label {
 }
 .card .card-content .weatherdata {
   max-height: 416px;
+}
+
+.locationname {
+  font-size: 1.2em;
+  font-weight: 700;
 }
 /* Poem */
 
@@ -160,9 +167,7 @@ label {
 }
 
 .poemcontent {
-  max-height: 667px;
   min-height: 416px;
-  overflow: auto;
 }
 
 /* Color Preferences */
