@@ -22,6 +22,7 @@ $(document).ready(function() {
       pickWord(weatherdata);
       selectAndDisplayPoem(rand);
     });
+    $('.authorwiki').click(openWiki);
 
     /* Functions */
 
@@ -53,6 +54,12 @@ $(document).ready(function() {
         $('.search').val("");
     }
 
+
+    function openWiki(event) {
+      console.log(event);
+      console.log("THIS WORKS");
+      window.open('https://en.wikipedia.org/wiki/'+poet[0].innerHTML, '_blank');
+    }
     function filterList(event) {
         $('.search').val(event.target.innerText);
         $('.locationlist > ul').empty();
@@ -175,4 +182,5 @@ $(document).ready(function() {
       var weathertime = localtime.tz(timezone).format('hh:mm z');
       $('.localtime').append(' ' + weathertime);
     }
+
 });
