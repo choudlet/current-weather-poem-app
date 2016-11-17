@@ -28,7 +28,6 @@ $(document).ready(function() {
         event.preventDefault();
         locationdata = $('.search').val();
         $.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + locationdata + "&key=AIzaSyBnZE4qJU7UOsB-8_nYTpkJfKOjuCqOm8s", function(data) {
-          console.log(data);
             if (data.status === "ZERO_RESULTS") {
                 Materialize.toast('No Results Please Search Again', 4000);
             } else if (data.results.length === 1) {
@@ -64,6 +63,7 @@ $(document).ready(function() {
             url: 'https://api.darksky.net/forecast/fca786bd2d0d60b933581d4c8abe3203/' + latitude + ',' + longitude,
             data: "data",
             success: function(data) {
+                console.log(data);
                 weatherdata = data.currently.icon;
                 changeWeatherFields(data);
                 pickWord(data.currently.icon);
