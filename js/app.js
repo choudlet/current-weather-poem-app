@@ -147,7 +147,7 @@ $(document).ready(function() {
     }
 
     function selectAndDisplayPoem(word) {
-        $.get('https://www.stands4.com/services/v2/poetry.php?uid=5425&tokenid=yz0jaxfwyLNjBzos&term=' + word, function(data) {
+        $.get('http://www.stands4.com/services/v2/poetry.php?uid=5425&tokenid=yz0jaxfwyLNjBzos&term=' + word, function(data) {
             xml = data;
             resultarray = xml.getElementsByTagName('result');
             arr = [].slice.call(resultarray);
