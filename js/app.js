@@ -144,7 +144,7 @@ $(document).ready(function() {
     }
 
     function selectAndDisplayPoem(word) {
-        $.get(`http://localhost:3000/?word=${word}`, function(data) {
+        $.get(`https://weatherpoemserver.herokuapp.com/?word=${word}`, function(data) {
           console.log(data);
             title = _.unescape(data.title[0]);
             poet = _.unescape(data.poet[0]);
