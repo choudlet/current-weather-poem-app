@@ -27,7 +27,6 @@ $(document).ready(function() {
         event.preventDefault();
         locationdata = $('.search').val();
         $.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + locationdata + "&key=AIzaSyBnZE4qJU7UOsB-8_nYTpkJfKOjuCqOm8s", function(data) {
-            console.log(data);
             if (data.status === "ZERO_RESULTS") {
                 Materialize.toast('No Results Please Search Again', 4000);
             } else if (data.results.length === 1) {
@@ -94,7 +93,6 @@ $(document).ready(function() {
     }
 
     function changeWeatherFields(data) {
-        console.log(data);
         timezone = data.timezone;
         $('.weathercontent').replaceWith(divClone.clone());
         $('.locationname').append(locationname);
@@ -103,7 +101,6 @@ $(document).ready(function() {
         $('.daily').append(' ' + data.hourly.summary);
         $('.precipprob').append(' ' + (data.currently.precipProbability * 100) + '%');
         $('.windspeed').append(' ' + data.currently.windSpeed + ' mph');
-        //formatTime(data.timezone);
         createicon(data.currently.icon);
         formatTime(timezone);
     }
@@ -147,28 +144,14 @@ $(document).ready(function() {
     }
 
     function selectAndDisplayPoem(word) {
-        $.get('http://www.stands4.com/services/v2/poetry.php?uid=5425&tokenid=yz0jaxfwyLNjBzos&term=' + word, function(data) {
-            xml = data;
-            resultarray = xml.getElementsByTagName('result');
-            arr = [].slice.call(resultarray);
-            newarr = [];
-            for (i = 0; i < arr.length; i++) {
-                poem = arr[i].getElementsByTagName('poem');
-
-                if (poem[0].textContent.length !== 100) {
-                    newarr.push(arr[i]);
-                }
-            }
-            selectedPoem = newarr[Math.floor(Math.random() * newarr.length)];
-            title = selectedPoem.getElementsByTagName('title');
-            poet = selectedPoem.getElementsByTagName('poet');
-            poem = selectedPoem.getElementsByTagName('poem');
-            finaltitle = _.unescape(title[0].textContent);
-            finalpoet = _.unescape(poet[0].textContent);
-            finalpoem = _.unescape(poem[0].textContent);
-            $('.poemtitle').text(finaltitle);
-            $('.poet').text(finalpoet);
-            $('.poem').text(finalpoem);
+        $.get(`http://localhost:3000/?word=${word}`, function(data) {
+          console.log(data);
+            title = _.unescape(data.title[0]);
+            poet = _.unescape(data.poet[0]);
+            poem = _.unescape(data.poem[0]);
+            $('.poemtitle').text(title);
+            $('.poet').text(poet);
+            $('.poem').text(poem);
         });
     }
 

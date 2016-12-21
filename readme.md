@@ -6,4 +6,4 @@ Initial Wireframe - https://wireframe.cc/l0h12G
 
 Deployed Project Link: https://weatherpoem.firebaseapp.com/
 
-Last Update 11/18/2016
+Last Update 12/20/2016 --- rerouted get request of app to my own proxy server.

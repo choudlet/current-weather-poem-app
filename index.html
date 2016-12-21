@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
     <link href="materialize/css/materialize.min.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700|Reenie+Beanie" rel="stylesheet" />
@@ -95,7 +96,7 @@
         <div class="addressherosection valign-wrapper">
             <section class="addressinput valign row">
                 <form class="z-depth-4">
-                    <fieldset>
+                    <fieldset id="fieldset">
                         <div class="searching">
                             <label for="search" class="searchlabel center-align">Enter Address, Zipcode, or Location</label>
                             <input class="search" name="search" type="text" value="" autocomplete="off" />
@@ -121,13 +122,14 @@
                         <div class="card-content">
                             <ul class="weathercontent center-align">
                                 <canvas class="z-depth-3" id="icon1" width="200" height="200"></canvas>
-                                <li class="locationname"><li>
-                                <li class="localtime">Local Time: </li>
-                                <li class="temperature">Current Temperature:</li>
-                                <li class="currentconditions">Current Conditions:</li>
-                                <li class="precipprob">Precipitation Probabilty</li>
-                                <li class="windspeed">Wind Speed: </li>
-                                <li class="daily">Daily Forecast:</li>
+                                <li class="locationname">
+                                    <li>
+                                        <li class="localtime">Local Time: </li>
+                                        <li class="temperature">Current Temperature:</li>
+                                        <li class="currentconditions">Current Conditions:</li>
+                                        <li class="precipprob">Precipitation Probabilty</li>
+                                        <li class="windspeed">Wind Speed: </li>
+                                        <li class="daily">Daily Forecast:</li>
                             </ul>
                         </div>
                         <div class="card-image imagearea">
@@ -139,10 +141,10 @@
                     <div class="col s6 poemcontent">
                         <div class="card">
                             <div class="card-content">
-                              <ul class="poeminfo center-align">
-                                <button class="btn-flat newpoem">New Poem</button>
-                                <button class="btn-flat authorwiki">Author Wiki</button>
-                              </ul>
+                                <ul class="poeminfo center-align">
+                                    <button class="btn-flat newpoem">New Poem</button>
+                                    <button class="btn-flat authorwiki">Author Wiki</button>
+                                </ul>
                                 <h3 class="poemtitle">Poem Title</h3>
                                 <h5 class="poet">Poet</h5>
                                 <p class="poem">Aesthetic cred lyft brooklyn selfies. Synth schlitz bicycle rights vegan sriracha, farm-to-table franzen cold-pressed master cleanse shoreditch. Poutine plaid semiotics celiac, shabby chic yr chicharrones. Sriracha forage
